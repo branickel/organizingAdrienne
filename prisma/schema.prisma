@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Todo {
+  id String @id @default(uuid())
+  userId String
+  input String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Incubation {
+  id String @id @default(uuid())
+  userId String
+  name String
+  number String
+  type String
+  quantity String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
